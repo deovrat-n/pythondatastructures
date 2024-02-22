@@ -74,7 +74,31 @@ class doublyll:
         nw=Node(data,itr.prev,itr)
         itr.prev.next=nw
         itr.prev=nw
+    
+    def remove_at(self,index):
+        if index<0 or index>=self.getLen():
+            raise Exception("Invalid Syntax")
+        itr=self.head
+        if index==0:
+            self.head=itr.next
+            itr.next=None
+            self.head.prev=None
+            return    
 
+
+        count=0
+        while count<index:
+            itr=itr.next
+            count+=1      
+
+        
+        
+        if index == self.getLen()-1:
+            itr.prev.next=itr.next
+            return
+        
+        itr.next.prev=itr.prev
+        
             
 
             
@@ -92,6 +116,8 @@ if __name__ == '__main__':
     ll.insert_at_end(5)
     ll.insert_at_end(6)
     ll.printll()
-    ll.insert_at_index(80,3)
+    ll.insert_at_index(80,0)
+    ll.printll()
+    ll.remove_at(6)
     ll.printll()
 
