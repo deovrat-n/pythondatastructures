@@ -21,6 +21,18 @@ class doublyll:
 
         k='-->'.join(str(i) for i in li)
         print(k)
+    
+    def getLen(self):
+        itr=self.head
+        count=0
+        if itr ==None:            
+            return count
+        
+        while itr:
+            itr=itr.next
+            count+=1
+        
+        return count
 
 
 
@@ -33,6 +45,39 @@ class doublyll:
         new=Node(data,None,itr)
         itr.prev=new
         self.head=new
+    
+    def insert_at_end(self,data):
+        itr=self.head
+        if itr==None:
+            self.head=Node(data,None,None)
+        
+        while itr.next:
+            itr=itr.next
+        
+        new=Node(data,itr,None)
+        itr.next=new
+    
+    def insert_at_index(self,data,index):
+        if index<0 or index>=self.getLen():
+            raise Exception("INvalid Syntax")
+        
+        if index==0:
+            self.insert_at_begining(data)
+            return
+        
+        itr=self.head
+        count=0
+        while count<index:
+            itr=itr.next
+            count+=1
+        
+        nw=Node(data,itr.prev,itr)
+        itr.prev.next=nw
+        itr.prev=nw
+
+            
+
+            
 
 
 if __name__ == '__main__':
@@ -42,5 +87,11 @@ if __name__ == '__main__':
     ll.insert_at_begining(2)
     ll.insert_at_begining(3)
     ll.insert_at_begining(4)
+    
+    ll.printll()
+    ll.insert_at_end(5)
+    ll.insert_at_end(6)
+    ll.printll()
+    ll.insert_at_index(80,3)
     ll.printll()
 
