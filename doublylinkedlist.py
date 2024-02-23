@@ -98,6 +98,7 @@ class doublyll:
             return
         
         itr.next.prev=itr.prev
+    
         
             
 
@@ -119,5 +120,7 @@ if __name__ == '__main__':
     ll.insert_at_index(80,0)
     ll.printll()
     ll.remove_at(6)
+    ll.printll()
+    ll.insert_at_index(50,5)
     ll.printll()
 
