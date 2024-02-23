@@ -117,6 +117,26 @@ class LinkedList:
         s='-->'.join(i for i in list)
         print(s)
     
+    def reversell(self):
+        itr=self.head
+        if itr==None:
+            print("List is Empty")
+            return
+
+        temp=None
+        curr=itr
+        
+        while curr:
+            fas=curr.next
+            curr.next=temp
+            temp=curr
+            curr=fas
+        
+        self.head=temp
+
+    
+
+    
 if __name__ == '__main__':
 
     ll=LinkedList()
@@ -140,6 +160,8 @@ if __name__ == '__main__':
     ll.insert_after(85,56)
     ll.printll()
     ll.remove_by_value(85)
+    ll.printll()
+    ll.reversell()
     ll.printll()
 
 
